@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import NavBar from "./components/NavBar";
+import NotFound from "./pages/NotFound";
+import Cart from "./pages/Cart";
+import Products from "./pages/Products";
+import Item from "./components/Item";
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-function App() {
+import './App.css'
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import CartProvider from "./context/CartContext";
+
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter >
+      <CartProvider >
+        <NavBar />
+        <Routes>
+          <Route path='/' element={<Products item='Productos' />} />
+          <Route path='/cart' element={<Cart items='Categorias' />} />
+          <Route path='/products/:id' element={<Item />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </CartProvider>
+    </BrowserRouter>
   );
 }
 
