@@ -1,5 +1,5 @@
 import { Container, Typography, CircularProgress, Box } from "@mui/material";
-import ItemListContainer from "../components/ItemListContainer";
+import ProductListContainer from "../components/ProductListContainer";
 import { useEffect, useState } from "react";
 
 
@@ -39,12 +39,10 @@ const Products = () => {
   return (
     <>
       <Container sx={{ display: 'flex', flexGrow: 1, justifyContent: 'center' }}>
-        <Typography variant="h2" gutterBottom>
-          Productos
-        </Typography>
-      </Container>
-      <Container>
-        <ItemListContainer items={products} />
+        <Box height={200} color='blue'>
+
+        </Box>
+        <ProductListContainer items={products} />
       </Container>
     </>
   );

@@ -20,7 +20,7 @@ const Item = () => {
   const [item, setItem] = useState({})
   const [loading, setLoading] = useState(true)
   const { addItem, removeItem } = useContext(CartContext)
-  const [count, setCount] = useState(1)
+  const [count, setCount] = useState(0)
 
   useEffect(() => {
 
@@ -67,9 +67,9 @@ const Item = () => {
     </>
   )
 
-  const handleAddItem = (e, item, count) => {
+  const handleAddItem = (e, item) => {
     setOpen(true);
-    addItem(item, count)
+    addItem(item, 1)
   }
 
   if (loading) {
@@ -114,13 +114,13 @@ const Item = () => {
               </Grid>
             </Grid>
           </CardContent>
-          <CardActions >
+          <CardActions>
             <Button size="small" onClick={(e) => { handleAddItem(e, item) }} >Agregar al carrito</Button>
-            <ButtonGroup size='sm' >
+            <ButtonGroup >
               <Button onClick={() => {setCount(prev => prev - 1)}}>
                 <Remove />
               </Button>
-              <TextField size='small' sx={{ width:70 }} value={count} />
+              <TextField value={count} />
               <Button onClick={() => {setCount(prev => prev + 1)}}>
                 <Add />
               </Button>

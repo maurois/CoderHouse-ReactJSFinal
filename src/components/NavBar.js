@@ -17,7 +17,8 @@ import {
   FormGroup,
   FormControlLabel,
   Switch,
-  Button
+  Button,
+  Grid
 } from '@mui/material';
 
 import MenuIcon from '@mui/icons-material/Menu'
@@ -49,8 +50,8 @@ const NavBar = () => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+    <Box sx={{ position: 'static', flexGrow: 1, height: '100px' }}>
+      <AppBar>
         <Toolbar>
 
           <IconButton
@@ -65,13 +66,13 @@ const NavBar = () => {
           </IconButton>
 
           <Box sx={{ flexGrow: 1 }}>
-            <Button variant='contained' disableElevation={true} size='large' onClick={() => navigate('/')}>
-              <Typography variant="h6"  >
-                Blue Store
-              </Typography>
-            </Button>
+              <Button variant='contained' disableElevation={true} size='small' onClick={() => navigate('/')}>
+                <Typography variant="h6" >
+                  Blue Store
+                </Typography>
+              </Button>
           </Box>
-          <CartButton />
+          <CartButton onClickFunction={() => { navigate('/cart')}} />
 
         </Toolbar>
 

@@ -1,14 +1,16 @@
-import { Grid, color } from '@mui/material';
+import { Grid } from '@mui/material';
 import ItemOverview from './ItemOverview';
+import ItemCard from './ProductCard'
 
 const ItemListContainer = ({ items }) => {
 
   return (
-    <Grid container spacing={4}>
+    <Grid container spacing={2}>
       {items.map(i => {
         return (
-          <Grid key={i.docId} item>
-            <ItemOverview item={i} />
+          <Grid item key={i.docId} >
+            {/* <ItemOverview item={i} /> */}
+            <ItemCard item={i}/>
           </Grid>
         )
       })}
