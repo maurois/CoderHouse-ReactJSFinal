@@ -8,13 +8,10 @@ const Cart = () => {
 
   const { cart } = useContext(CartContext)
 
-  console.log(cart)
-
   return (
     <Container>
       <List >
         {cart.map(item => {
-          console.log(item)
           return (
             <ListItem>
               <CartItem item={item} />

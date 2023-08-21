@@ -39,9 +39,6 @@ const Products = () => {
   return (
     <>
       <Container sx={{ display: 'flex', flexGrow: 1, justifyContent: 'center' }}>
-        <Box height={200} color='blue'>
-
-        </Box>
         <ProductListContainer items={products} />
       </Container>
     </>

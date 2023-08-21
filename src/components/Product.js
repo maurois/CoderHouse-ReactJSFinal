@@ -18,16 +18,23 @@ import { useContext, useState } from 'react';
 const Product = () => {
 
   const [open, setOpen] = useState(false)
-  const { addItem, removeItem, cart } = useContext(CartContext)
+  const { addItem, removeItem, isInCart } = useContext(CartContext)
   const [count, setCount] = useState(1)
+  const [snackbarMessage, setSnackbarMessage] = useState('')
 
   const { state } = useLocation()
   const item = state
 
 
   const handleAddItem = (item, count) => {
+    if (!isInCart(item.id)){
+      setSnackbarMessage('Producto agregado al carrito.')
+      addItem(item, count)
+    } else {
+      setSnackbarMessage('El producto que intenta agregar ya está en el carrito.')
+    }
     setOpen(true);
-    addItem(item, count)
+
   }
 
   const handleClose = (event, reason) => {
@@ -43,12 +50,6 @@ const Product = () => {
 
   const snackbarAction = (
     <>
-      <Button
-        size='sm'
-        onClick={(e) => { handleUndo(e, item) }}
-      >
-        DESHACER
-      </Button>
       <IconButton
         size="small"
         aria-label="close"
@@ -59,8 +60,6 @@ const Product = () => {
       </IconButton>
     </>
   )
-
-  console.log(cart)
 
   return (
     <>
@@ -112,19 +111,17 @@ const Product = () => {
           <Card
             variant='soft'
           >
-            <Typography>Cantidad: {count} </Typography>
             <ButtonGroup size="sm" variant='outlined' aria-label="outlined button group" >
               <Button variant='outlined' sx={{ width: '10px' }} onClick={() => { setCount(prev => (prev - 1)) }}>
                 <Remove />
               </Button>
+            <Typography sx={{padding:'15px'}}>Cantidad: {count} </Typography>
               <Button variant='outlined' sx={{ width: '10px' }} onClick={() => { setCount(prev => (prev + 1)) }}>
                 <Add />
               </Button>
             </ButtonGroup>
             <Button
-              // sx={{height: '100px', width: '100px'}}
               variant="outlined"
-              // color="success"
               onClick={() => handleAddItem(item, count)}
             >
               Agregar al carrito
@@ -137,7 +134,7 @@ const Product = () => {
         open={open}
         autoHideDuration={5000}
         onClose={handleClose}
-        message="Producto agregado al carrito de compras"
+        message={snackbarMessage}
         action={snackbarAction}
       />
     </>
