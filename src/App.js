@@ -4,6 +4,7 @@ import Cart from "./pages/Cart";
 import Products from "./pages/Products";
 import Product from "./components/Product";
 import CartProvider from "./context/CartContext";
+import CategoryProvider from "./context/CategoryContext";
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import './App.css'
@@ -18,13 +19,15 @@ const App = () => {
   return (
     <BrowserRouter >
       <CartProvider >
-        <NavBar />
-        <Routes>
-          <Route path='/' element={<Products item='Productos' />} />
-          <Route path='/cart' element={<Cart items='Categorias' />} />
-          <Route path='/products/:id' element={<Product />} />
-          <Route path='*' element={<NotFound />} />
-        </Routes>
+        <CategoryProvider>
+          <NavBar />
+          <Routes>
+            <Route path='/' element={<Products item='Productos' />} />
+            <Route path='/cart' element={<Cart items='Categorias' />} />
+            <Route path='/products/:id' element={<Product />} />
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+        </CategoryProvider>
       </CartProvider>
     </BrowserRouter>
   );

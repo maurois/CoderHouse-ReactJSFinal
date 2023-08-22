@@ -1,11 +1,10 @@
 # Proyecto Final - React-App e-commerce
 
-## Scripts disponibles
+Es una aplicacion de e-commerce.
+Es capaz de mostrar una lista de productos con sus caracteristicas cuyos datos estan almacenados en Firebase.
+Cada producto perteneces a una categoria especifica.
+Se puede selecionar que categorias mostrar.
 
-En el directorio del proyecto puedes ejecutar
+Tambien se los puede agregar a un carrito en diferentes cantidades.
 
-### `npm start`
-
-Ejecutará la app en modo de desarrollo, luego.\
-Abrir [http://localhost:3000](http://localhost:3000) para ver la app en el navegador.
-
+Falta manejar la consistencia de la base de datos

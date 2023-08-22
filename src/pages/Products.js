@@ -2,7 +2,6 @@ import { Container, Typography, CircularProgress, Box } from "@mui/material";
 import ProductListContainer from "../components/ProductListContainer";
 import { useEffect, useState } from "react";
 
-
 import { getDocs, collection } from 'firebase/firestore';
 import { db } from '../services/firebase/firebaseConfig';
 
@@ -39,7 +38,7 @@ const Products = () => {
   return (
     <>
       <Container sx={{ display: 'flex', flexGrow: 1, justifyContent: 'center' }}>
-        <ProductListContainer items={products} />
+          <ProductListContainer items={products} />
       </Container>
     </>
   );

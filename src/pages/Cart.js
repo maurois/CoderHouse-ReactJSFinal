@@ -13,7 +13,7 @@ const Cart = () => {
       <List >
         {cart.map(item => {
           return (
-            <ListItem>
+            <ListItem key={item.id}>
               <CartItem item={item} />
             </ListItem>
           )

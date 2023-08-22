@@ -17,8 +17,7 @@ import {
   FormGroup,
   FormControlLabel,
   Switch,
-  Button,
-  Grid
+  Button
 } from '@mui/material';
 
 import MenuIcon from '@mui/icons-material/Menu'
@@ -28,15 +27,21 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 
 
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import CartButton from './CartButton';
 import { useNavigate } from 'react-router-dom';
 
+import { CategoryContext } from '../context/CategoryContext';
+
 const NavBar = () => {
 
-  const [showDrawer, setShowDrawer] = useState(false)
-
   const navigate = useNavigate()
+  const [showDrawer, setShowDrawer] = useState(false)
+  const { isSelected, toggleSelection, categoriesSelected} = useContext(CategoryContext)
+
+  const handleSelection = (category) => {
+    toggleSelection(category)
+  }
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -116,10 +121,10 @@ const NavBar = () => {
                   </AccordionSummary>
                   <AccordionDetails >
                     <FormGroup>
-                      <FormControlLabel control={<Switch defaultChecked />} label="Electronics" labelPlacement='start' sx={{ mr: 2 }} />
-                      <FormControlLabel control={<Switch defaultChecked />} label="Jewelery" labelPlacement='start' sx={{ mr: 2 }} />
-                      <FormControlLabel control={<Switch defaultChecked />} label="Men's clothing" labelPlacement='start' sx={{ mr: 2 }} />
-                      <FormControlLabel control={<Switch defaultChecked />} label="Women's clothing" labelPlacement='start' sx={{ mr: 2 }} />
+                      <FormControlLabel control={<Switch checked={isSelected('electronics')} onChange={() => {handleSelection('electronics')}}/>} label="Electronics" labelPlacement='start' sx={{ mr: 2 }} />
+                      <FormControlLabel control={<Switch checked={isSelected('jewelery')} onChange={() => {handleSelection('jewelery')}}/>} label="Jewelery" labelPlacement='start' sx={{ mr: 2 }} />
+                      <FormControlLabel control={<Switch checked={isSelected('men\'s clothing')} onChange={() => {handleSelection('men\'s clothing')}} />} label="Men's clothing" labelPlacement='start' sx={{ mr: 2 }} />
+                      <FormControlLabel control={<Switch checked={isSelected('women\'s clothing')} onChange={() => {handleSelection('women\'s clothing')}}/>} label="Women's clothing" labelPlacement='start' sx={{ mr: 2 }} />
                     </FormGroup>
                   </AccordionDetails>
                 </Accordion>
