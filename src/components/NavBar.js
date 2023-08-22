@@ -27,7 +27,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 
 
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import CartButton from './CartButton';
 import { useNavigate } from 'react-router-dom';
 

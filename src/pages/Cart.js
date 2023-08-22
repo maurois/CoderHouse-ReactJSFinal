@@ -1,4 +1,4 @@
-import { List, ListItem, Typography, Button, ButtonGroup, Container } from "@mui/material";
+import { List, ListItem, Button, ButtonGroup, Container } from "@mui/material";
 import CartItem from "../components/CartItem";
 
 import { CartContext } from "../context/CartContext";

@@ -1,4 +1,4 @@
-import { Container, Typography, CircularProgress, Box } from "@mui/material";
+import { Container, CircularProgress, Box } from "@mui/material";
 import ProductListContainer from "../components/ProductListContainer";
 import { useEffect, useState } from "react";
 

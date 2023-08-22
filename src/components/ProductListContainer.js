@@ -1,6 +1,5 @@
 import { Grid } from '@mui/material';
-import ItemOverview from './ItemOverview';
-import ItemCard from './ProductCard'
+import ProductCard from './ProductCard'
 import { CategoryContext } from '../context/CategoryContext';
 import { useContext } from 'react';
 
@@ -16,7 +15,7 @@ const ItemListContainer = ({ items }) => {
           return (
             <Grid item key={i.docId} >
               {/* <ItemOverview item={i} /> */}
-              <ItemCard item={i}/>
+              <ProductCard item={i}/>
             </Grid>
           )
         }        

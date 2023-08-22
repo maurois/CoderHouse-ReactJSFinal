@@ -1,12 +1,11 @@
-import { Button, ButtonGroup, Card, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
+import { Button, Card, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
 
 import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
-import { Padding } from "@mui/icons-material";
 
 const CartItem = (item) => {
 
-  const { cart, removeItem } = useContext(CartContext)
+  const { removeItem } = useContext(CartContext)
 
   const handleClick = (id) => {
     removeItem(id)
@@ -21,7 +20,7 @@ const CartItem = (item) => {
           image={item.item.image}
           alt={item.id}
         />
-        <CardContent sx={{ display: 'flex', direction: 'row', width:'100%', height: '70px', alignItems: 'center' }}>
+        <CardContent sx={{ display: 'flex', direction: 'row', width: '100%', height: '70px', alignItems: 'center' }}>
           <Card variant="soft" sx={{ display: 'block', padding: '10px', width: '100%' }}>
             <Typography >
               {item.item.title}

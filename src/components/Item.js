@@ -1,10 +1,10 @@
 import {
   Container, Grid, Button, Card, CardMedia,
   CardContent, CardActions, Typography,
-  Box, CircularProgress, Snackbar, IconButton, FormGroup, FormControlLabel, ButtonGroup, TextField
+  Box, CircularProgress, Snackbar, IconButton, ButtonGroup, TextField
 } from '@mui/material';
 
-import {Close, Remove, Add } from '@mui/icons-material';
+import { Close, Remove, Add } from '@mui/icons-material';
 
 import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'
@@ -23,8 +23,6 @@ const Item = () => {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
-
-    // console.log(cart);
 
     const itemRef = doc(db, 'products', id)
 
@@ -117,11 +115,11 @@ const Item = () => {
           <CardActions>
             <Button size="small" onClick={(e) => { handleAddItem(e, item) }} >Agregar al carrito</Button>
             <ButtonGroup >
-              <Button onClick={() => {setCount(prev => prev - 1)}}>
+              <Button onClick={() => { setCount(prev => prev - 1) }}>
                 <Remove />
               </Button>
               <TextField value={count} />
-              <Button onClick={() => {setCount(prev => prev + 1)}}>
+              <Button onClick={() => { setCount(prev => prev + 1) }}>
                 <Add />
               </Button>
             </ButtonGroup>

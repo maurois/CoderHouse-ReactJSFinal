@@ -1,5 +1,5 @@
 import {
-  Snackbar, ButtonGroup, IconButton, Alert
+  Snackbar, ButtonGroup, IconButton
 } from '@mui/material';
 
 import Button from '@mui/joy/Button';
@@ -8,7 +8,7 @@ import CardContent from '@mui/joy/CardContent';
 import CardActions from '@mui/joy/CardActions';
 import Typography from '@mui/joy/Typography';
 
-import { Close, Remove, Add, Chip } from '@mui/icons-material';
+import { Close, Remove, Add } from '@mui/icons-material';
 
 import { useLocation } from "react-router-dom";
 

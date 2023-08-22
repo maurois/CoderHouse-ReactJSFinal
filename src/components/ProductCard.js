@@ -18,7 +18,6 @@ const ItemCard = ({item}) => {
   return (
     <Card variant='outlined' sx={{ width: 320, maxWidth: '100%', boxShadow: 'lg' }}>
       <CardActionArea sx={{ margin: '0' }} onClick={ handleClick}>
-      {/* <Button size='small' onClick={() => { handleClick(item.docId) }} >Detalles</Button> */}
         <CardOverflow>
           <AspectRatio sx={{ minWidth: 200 }}>
             <img
@@ -50,8 +49,6 @@ const ItemCard = ({item}) => {
             </Chip>
           </Typography>
           <Typography
-            
-            // sx={{ mt: 1, fontWeight: 'xl' }}
             startDecorator='$'
           >
             <b>{item.price}</b>

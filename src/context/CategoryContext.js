@@ -1,4 +1,3 @@
-import { selectClasses } from "@mui/material";
 import { createContext, useState } from "react";
 
 export const CategoryContext = createContext({
