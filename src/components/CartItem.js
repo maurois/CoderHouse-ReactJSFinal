@@ -1,5 +1,5 @@
-import { Button, Card, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
-
+import { Button, Card, CardActions, CardContent, CardMedia, Typography, Chip } from "@mui/material";
+import PaidIcon from '@mui/icons-material/Paid';
 import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
 
@@ -20,16 +20,17 @@ const CartItem = (item) => {
           image={item.item.image}
           alt={item.id}
         />
-        <CardContent sx={{ display: 'flex', direction: 'row', width: '100%', height: '70px', alignItems: 'center' }}>
+        <CardContent sx={{ display: 'flex', flexWrap:'nowrap', overflow:'hidden', direction: 'row', width: '100%', height: '70px', alignItems: 'center' }}>
           <Card variant="soft" sx={{ display: 'block', padding: '10px', width: '100%' }}>
-            <Typography >
+            <Typography noWrap sx={{display:'flex', alignItems:'center', justifyContent:'space-between'}}>
               {item.item.title}
+            <Chip  icon={<PaidIcon />} size="small" variant="outlained"  label={<Typography noWrap variant="body1"   >{item.item.price*item.item.quantity}</Typography>} />
             </Typography>
-            <Typography>
+            <Typography noWrap variant="body1">$ {item.item.price}</Typography>
+            <Typography noWrap>
               Cantidad: {item.item.quantity}
             </Typography>
           </Card>
-
         </CardContent>
         <CardActions>
           <Button
